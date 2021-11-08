@@ -80,8 +80,6 @@ pip install git+https://github.com/qjy981010/cocoapi.git#"egg=pycocotools&subdir
 bash compile.sh
 ```
 
-Our model is based on MaskRCNN-resnet50-FPN. The model is trained end-to-end on YouTubeVIS based on a MSCOCO pretrained checkpoint ([mmlab link](https://s3.ap-northeast-2.amazonaws.com/open-mmlab/mmdetection/models/mask_rcnn_r50_fpn_1x_20181010-069fa190.pth) or [google drive](https://drive.google.com/file/d/1pPjjKrG9VDEyzZJt6psCiPVj5wL9w1_I/view?usp=sharing)).
-
 ### Data preparation
 1. Download OVIS from [our website](http://songbai.site/ovis/).
 2. Symlink the train/validation dataset to `data/OVIS/` folder. Put COCO-style annotations under `data/annotations`.
@@ -101,6 +99,9 @@ mmdetection
 ```
 
 ### Training
+
+Our model is based on MaskRCNN-resnet50-FPN. The model is trained end-to-end on OVIS based on a MSCOCO pretrained checkpoint ([mmlab link](https://s3.ap-northeast-2.amazonaws.com/open-mmlab/mmdetection/models/mask_rcnn_r50_fpn_1x_20181010-069fa190.pth) or [google drive](https://drive.google.com/file/d/1pPjjKrG9VDEyzZJt6psCiPVj5wL9w1_I/view?usp=sharing)).
+
 Run the command below to train the model.
 ```CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py --work_dir ./workdir/cmasktrack_rcnn_r50_fpn_1x_ovis --gpus 4```
 For reference to arguments such as learning rate and model parameters, please refer to `configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py`.
