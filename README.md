@@ -5,7 +5,7 @@ This repo serves as the official code release of the CMaskTrack R-CNN model on t
 ## [Occluded Video Instance Segmentation](https://arxiv.org/abs/2102.01558)
 
 >Jiyang Qi<sup>1,2</sup>\*, Yan Gao<sup>2</sup>\*, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, Xiaoyu Liu<sup>2</sup>,  
->[Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Serge Belongie](s.belongie@di.ku.dk)<sup>3</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>4</sup>, [Philip Torr](http://www.robots.ox.ac.uk/~phst/)<sup>5</sup>, [Song Bai](http://songbai.site)<sup>2,5 :email:</sup>  
+>[Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Serge Belongie](https://scholar.google.com/citations?user=ORr4XJYAAAAJ)<sup>3</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>4</sup>, [Philip Torr](http://www.robots.ox.ac.uk/~phst/)<sup>5</sup>, [Song Bai](http://songbai.site)<sup>2,5 :email:</sup>  
 ><sup>1</sup>Huazhong University of Science and Technology  <sup>2</sup>Alibaba Group  <sup>3</sup>University of Copenhagen  
 ><sup>4</sup>Johns Hopkins University  <sup>5</sup>University of Oxford
 
@@ -57,7 +57,6 @@ Some annotation examples can be seen below:
 </td>
 </tr>
 </table>
-<center><i>Visualization of the annotations.</i></center>
 
 For more details about the dataset, please refer to our [paper](https://arxiv.org/abs/2102.01558) or [website](http://songbai.site/ovis/).
 
@@ -65,8 +64,8 @@ For more details about the dataset, please refer to our [paper](https://arxiv.or
 
 ### Installation
 
-This repo is built based on [MaskTrackRCNN](https://github.com/youtubevos/MaskTrackRCNN).
-You also need to install a customized [COCO API](https://github.com/youtubevos/cocoapi) for the OVIS dataset.
+This repo is built based on [MaskTrackRCNN](https://github.com/youtubevos/MaskTrackRCNN). A customized [COCO API](https://github.com/qjy981010/cocoapi) for the OVIS dataset is also provided.
+
 You can use following commands to create conda env with all dependencies.
 
 ```
@@ -103,13 +102,15 @@ mmdetection
 Our model is based on MaskRCNN-resnet50-FPN. The model is trained end-to-end on OVIS based on a MSCOCO pretrained checkpoint ([mmlab link](https://s3.ap-northeast-2.amazonaws.com/open-mmlab/mmdetection/models/mask_rcnn_r50_fpn_1x_20181010-069fa190.pth) or [google drive](https://drive.google.com/file/d/1pPjjKrG9VDEyzZJt6psCiPVj5wL9w1_I/view?usp=sharing)).
 
 Run the command below to train the model.
-```CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py --work_dir ./workdir/cmasktrack_rcnn_r50_fpn_1x_ovis --gpus 4```
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py --work_dir ./workdir/cmasktrack_rcnn_r50_fpn_1x_ovis --gpus 4
+```
 For reference to arguments such as learning rate and model parameters, please refer to `configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py`.
 
 ### Evaluation
 
 Our pretrained model is available for download at [Google Drive (comming soon)]().
-Run the following command to evaluate the model on YouTubeVIS.
+Run the following command to evaluate the model on OVIS.
 ```
 CUDA_VISIBLE_DEVICES=0 python test_video.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py [MODEL_PATH] --out [OUTPUT_PATH.pkl] --eval segm
 ```
