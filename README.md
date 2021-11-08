@@ -84,7 +84,7 @@ Our model is based on MaskRCNN-resnet50-FPN. The model is trained end-to-end on 
 
 ### Data preparation
 1. Download OVIS from [our website](http://songbai.site/ovis/).
-2. Symlink the train/validation dataset to `data` folder. Put COCO-style annotations under `data/annotations`.
+2. Symlink the train/validation dataset to `data/OVIS/` folder. Put COCO-style annotations under `data/annotations`.
 
 ```
 mmdetection
@@ -102,7 +102,7 @@ mmdetection
 
 ### Training
 Run the command below to train the model.
-```CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py --work_dir ./workdir --gpus 4```
+```CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py --work_dir ./workdir/cmasktrack_rcnn_r50_fpn_1x_ovis --gpus 4```
 For reference to arguments such as learning rate and model parameters, please refer to `configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py`.
 
 ### Evaluation
@@ -110,12 +110,12 @@ For reference to arguments such as learning rate and model parameters, please re
 Our pretrained model is available for download at [Google Drive (comming soon)]().
 Run the following command to evaluate the model on YouTubeVIS.
 ```
-CUDA_VISIBLE_DEVICES=0 python test_video.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py [MODEL_PATH] --out [OUTPUT_PATH (xxx/xxx.pkl)] --eval segm
+CUDA_VISIBLE_DEVICES=0 python test_video.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py [MODEL_PATH] --out [OUTPUT_PATH.pkl] --eval segm
 ```
 A json file containing the predicted result will be generated as `OUTPUT_PATH.pkl.json`. OVIS currently only allows evaluation on the codalab server. Please upload the generated result to [codalab server](https://competitions.codalab.org/competitions/32377) to see actual performances.
 
 ## License
-This project is released under the [Apache 2.0 license](LICENSE), while the correlation ops is under[MIT license](mmdet/ops/correlation/LICENSE).
+This project is released under the [Apache 2.0 license](LICENSE), while the correlation ops is under [MIT license](mmdet/ops/correlation/LICENSE).
 
 ## Acknowledgement
 
