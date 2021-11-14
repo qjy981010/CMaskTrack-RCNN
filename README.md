@@ -109,7 +109,7 @@ For reference to arguments such as learning rate and model parameters, please re
 
 ### Evaluation
 
-Our pretrained model is available for download at [Google Drive (comming soon)]().
+Our pretrained model is available for download at [Google Drive](https://drive.google.com/file/d/1MOV12JM1IXW16AU6_2UyvaxcyCxJlJkv/view?usp=sharing).
 Run the following command to evaluate the model on OVIS.
 ```
 CUDA_VISIBLE_DEVICES=0 python test_video.py configs/cmasktrack_rcnn_r50_fpn_1x_ovis.py [MODEL_PATH] --out [OUTPUT_PATH.pkl] --eval segm
