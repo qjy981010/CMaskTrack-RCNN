@@ -134,10 +134,10 @@ This project is based on [mmdetection (commit hash f3a939f)](https://github.com/
 If you find our paper and code useful in your research, please consider giving a star ⭐ and citation 📝 :
 
 ```
-@article{qi2021occluded,
-    title={Occluded Video Instance Segmentation},
+@article{qi2022occluded,
+    title={Occluded Video Instance Segmentation: A Benchmark},
     author={Jiyang Qi and Yan Gao and Yao Hu and Xinggang Wang and Xiaoyu Liu and Xiang Bai and Serge Belongie and Alan Yuille and Philip Torr and Song Bai},
-    journal={arXiv preprint arXiv:2102.01558},
-    year={2021},
+    journal={International Journal of Computer Vision},
+    year={2022},
 }
 ```
